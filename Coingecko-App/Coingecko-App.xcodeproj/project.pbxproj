@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E3FF8F92B2D73C500A59721 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3FF8F82B2D73C500A59721 /* CoinDataService.swift */; };
+		4E68A8F72B6B852D00BA7317 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E68A8F62B6B852D00BA7317 /* Coin.swift */; };
 		4ED496412B2ACEF000BE66F4 /* Coingecko_App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED496402B2ACEF000BE66F4 /* Coingecko_App.swift */; };
 		4ED496432B2ACEF000BE66F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED496422B2ACEF000BE66F4 /* ContentView.swift */; };
 		4ED496452B2ACEF300BE66F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ED496442B2ACEF300BE66F4 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E3FF8F82B2D73C500A59721 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
+		4E68A8F62B6B852D00BA7317 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		4ED4963D2B2ACEF000BE66F4 /* Coingecko-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coingecko-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED496402B2ACEF000BE66F4 /* Coingecko_App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coingecko_App.swift; sourceTree = "<group>"; };
 		4ED496422B2ACEF000BE66F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E3FF8F72B2D73B300A59721 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4E3FF8F82B2D73C500A59721 /* CoinDataService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4ED496342B2ACEF000BE66F4 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 		4ED4966B2B2ACF8C00BE66F4 /* AltCoins */ = {
 			isa = PBXGroup;
 			children = (
+				4E3FF8F72B2D73B300A59721 /* Service */,
 				4ED4966E2B2ACFAE00BE66F4 /* ViewModel */,
 				4ED4966D2B2ACFA600BE66F4 /* View */,
 				4ED4966C2B2ACF9F00BE66F4 /* Model */,
@@ -150,6 +163,7 @@
 		4ED4966C2B2ACF9F00BE66F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4E68A8F62B6B852D00BA7317 /* Coin.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,8 +322,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3FF8F92B2D73C500A59721 /* CoinDataService.swift in Sources */,
 				4ED496722B2AD6C400BE66F4 /* CoinsViewModel.swift in Sources */,
 				4ED496432B2ACEF000BE66F4 /* ContentView.swift in Sources */,
+				4E68A8F72B6B852D00BA7317 /* Coin.swift in Sources */,
 				4ED496412B2ACEF000BE66F4 /* Coingecko_App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

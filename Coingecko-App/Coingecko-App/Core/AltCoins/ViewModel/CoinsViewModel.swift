@@ -8,15 +8,21 @@
 import Foundation
 
 class CoinsViewModel: ObservableObject {
-    @Published var coin = ""
-    @Published var price = ""
+    @Published var coins = [Coin]()
+    
+    private let service = CoinDataService()
     
     init() {
-        fetchPrice()
+        fetchCoins()
+    }
+    // pass the data throug from the completion handler to a service
+    func fetchCoins() {
+        service.fetchCoins {
+            coins in
+            DispatchQueue.main.async {
+                self.coins = coins
+            }
+        }
     }
     
-    func fetchPrice() {
-        self.coin = "Bitcoin"
-        self.price = "$78,000"
-    }
 }
