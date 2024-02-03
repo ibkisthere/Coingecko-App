@@ -9,20 +9,50 @@ import Foundation
 
 class CoinDataService {
     private let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&sparkline=false&price_change_percentage=24h&locale=en"
-    func fetchCoins(completion: @escaping([Coin]) -> Void) {
+    
+    
+    
+    // swift has a dta type that makes us handle success and failure cases when working with completions eaasier
+    func fetchCoins(completion: @escaping(Result<[Coin], Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
+        
         URLSession.shared.dataTask(with:url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
             guard let data = data else { return }
 //            let dataAsString = String(data:data, encoding: .utf8)
             guard let coins = try? JSONDecoder().decode([Coin].self, from: data) else {
                 print("DEBUG: Failed to decode coins")
                 return
             }
-            completion(coins)
+            completion(.success(coins))
             print("DEBUG: Coins decoded \(coins)")
 //            print("DEBUG: Coin data \(dataAsString)")
         }.resume()
     }
+    
+    
+//    func fetchCoins(completion: @escaping([Coin]?, Error?) -> Void) {
+//        guard let url = URL(string: urlString) else { return }
+//
+//        URLSession.shared.dataTask(with:url) { data, response, error in
+//            if let error = error {
+//                completion(nil,error)
+//                return
+//            }
+//            guard let data = data else { return }
+////            let dataAsString = String(data:data, encoding: .utf8)
+//            guard let coins = try? JSONDecoder().decode([Coin].self, from: data) else {
+//                print("DEBUG: Failed to decode coins")
+//                return
+//            }
+//            completion(coins, nil)
+//            print("DEBUG: Coins decoded \(coins)")
+////            print("DEBUG: Coin data \(dataAsString)")
+//        }.resume()
+//    }
     
     func fetchPrice(coin:String, completion : @escaping(Double) -> Void) {
         let urlString = "https://api.coingecko.com/api/v3/simple/price?ids=\(coin)&vs_currencies=usd"
@@ -51,6 +81,7 @@ class CoinDataService {
 //                self.coin = coin.capitalized
 //                self.price = "$\(price)"
             print("DEBUG:Price in service is \(price)")
+            
             completion(price)
         }.resume()
     }
